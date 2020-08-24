@@ -1,3 +1,4 @@
+import math
 import sys
 
 def test_power_of_2(str):
@@ -11,6 +12,11 @@ def test_power_of_2(str):
 def test_palindrome(str):
 	return "Palindromic:", str == str[::-1]
 
+def test_square(str):
+	num = int(str)
+
+	return "Square number:", math.isqrt(num)**2 == num
+
 def main():
 	#TODO support more options than checking one number
 	if len(sys.argv) != 1 + 1:
@@ -20,7 +26,8 @@ def main():
 
 	tests = [
 		test_power_of_2,
-		test_palindrome
+		test_palindrome,
+		test_square
 	]
 
 	[print(*test(num)) for test in tests]
